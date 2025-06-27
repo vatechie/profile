@@ -32,10 +32,10 @@ jobs:
           git config user.name "vatechie"
           git config user.email "vatechie@github.com"
 
-      - name: Build and deploy
-        run: npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Build and deploy
+      #   run: npm run deploy
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
