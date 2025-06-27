@@ -2,7 +2,7 @@
   "name": "dev-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vatechoe.github.io/profile",
+  "homepage": "https://vatechie.github.io/profile",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
