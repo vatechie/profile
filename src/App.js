@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail, ExternalLink, Download } from 'lucide-react';
-import { personalInfo, experience, education, skills, projects } from './data/portfolioData';
+//import {  ExternalLink } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { personalInfo, experience, education, skills } from './data/portfolioData';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
