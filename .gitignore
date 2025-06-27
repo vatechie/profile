@@ -9,6 +9,7 @@
 /coverage
 
 # production
+/out
 /build
 
 # misc
@@ -45,3 +46,4 @@ pids
 .Trashes
 ehthumbs.db
 Thumbs.db
+out/trace
