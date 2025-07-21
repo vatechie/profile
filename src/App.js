@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 //import {  ExternalLink } from 'lucide-react';
-import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo, experience, education, skills } from './data/portfolioData';
 
 const Portfolio = () => {
@@ -10,7 +10,7 @@ const Portfolio = () => {
   // Handle scroll to update active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'experience', 'education', 'skills', 'projects', 'contact'];
+      const sections = ['home', 'experience', 'education', 'skills', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -54,20 +54,43 @@ const Portfolio = () => {
     </button>
   );
 
+  const profileInitials = personalInfo.name.split(' ').map(n => n[0]).join('').toUpperCase();
+
+  const shouldShowInitials = !personalInfo.img
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation Header */}
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold text-gray-900">
-              {personalInfo.name}
+            <div className="flex items-center space-x-3">
+              {/* Circular Profile Image */}
+              {/* <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold overflow-hidden">
+                {shouldShowInitials ? (
+                  profileInitials
+                ) : (
+                  <img
+                    src={require(`./data/profile.jpeg`)}
+                    alt={personalInfo.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      console.error('Navigation image failed to load:', personalInfo.img);
+                      // Fallback to initials if image fails
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = profileInitials;
+                    }}
+                  />
+                )}
+              </div> */}
+              <div className="text-2xl font-bold text-gray-900">
+                {personalInfo.name}
+              </div>
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-1">
               <NavLink href="home">Home</NavLink>
-              <NavLink href="about">About</NavLink>
               <NavLink href="experience">Experience</NavLink>
               <NavLink href="education">Education</NavLink>
               <NavLink href="skills">Skills</NavLink>
@@ -102,11 +125,24 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+      <section id="home" className="pt-16 pb-8 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-20">
+          <div className="text-center py-10">
             <div className="w-32 h-32 mx-auto mb-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-4xl font-bold">
-              {personalInfo.name.split(' ').map(n => n[0]).join('')}
+              {shouldShowInitials ? (
+                profileInitials
+              ) : (
+                <img
+                src={require(`./data/profile.jpeg`)}
+                  alt={profileInitials}
+                  className="w-full h-full object-cover rounded-full"
+                  onError={(e) => {
+                    console.error('Image failed to load:', personalInfo.img);
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = profileInitials;
+                  }}
+                />
+              )}
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
               {personalInfo.name}
@@ -114,41 +150,15 @@ const Portfolio = () => {
             <p className="text-xl sm:text-2xl text-gray-600 mb-8">
               {personalInfo.title}
             </p>
-            <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">
-              {personalInfo.description}
-            </p>
-            <div className="flex justify-center space-x-4">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2">
-                <Download size={20} />
-                <span>Download Resume</span>
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors"
-              >
-                Get In Touch
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">About Me</h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="w-full h-80 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg"></div>
-            </div>
-            <div>
+            <p className="text-lg text-gray-800 mb-12 max-w-2xxl mx-auto w-4/5">
               <p className="text-lg text-gray-600 mb-6">
               {personalInfo.aboutMe.part1}
               </p>
               <p className="text-lg text-gray-600 mb-6">
               {personalInfo.aboutMe.part2}
               </p>
-              <div className="flex space-x-4">
+            </p>
+            <div className="inline-flex space-x-4">
                 <a href={personalInfo.social.github} className="text-gray-600 hover:text-blue-600 transition-colors">
                   <Github size={24} />
                 </a>
@@ -159,7 +169,6 @@ const Portfolio = () => {
                   <Mail size={24} />
                 </a>
               </div>
-            </div>
           </div>
         </div>
       </section>
@@ -282,7 +291,7 @@ const Portfolio = () => {
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <p className="text-lg text-gray-600">
-                I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+                I'm open to discussing new opportunities, interesting projects, or just having a chat about technology.
               </p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md">

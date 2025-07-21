@@ -2,11 +2,12 @@ export const personalInfo = {
     name: "Vishal Aggarwal",
     title: "Senior Software Consultant",
     description: "Curious by nature and driven by possibilities, I enjoy discovering my potential through building impactful solutions. With a strong foundation in backend, frontend, and system integration, I thrive on solving complex problems, staying positive, and continuously growing both in technology and in life. Trekking and programming keep me balanced and inspired.",
+    img: "./data/profile.jpeg",
     email: "vishaggarwal94@gmail.com",
     location: "Melbourne, Australia",
     aboutMe: {
-      part1: "I’m a passionate Software Developer with a strong foundation in backend and system integration. I enjoy crafting reliable, scalable solutions that solve real-world problems and deliver business value. My experience spans building cloud-native applications, integrating distributed systems, and contributing across software development lifecycle.",
-      part2: "Driven by curiosity and a love for discovery, I believe that life is full of possibilities—both in technology and beyond. I bring a positive mindset to every challenge, constantly learning and growing along the way. Outside of work, I find inspiration in trekking and nature, which helps me stay grounded and focused."
+      part1: "I’m a passionate Software Developer with a strong foundation in backend and system integration. I enjoy developing reliable, scalable solutions that solve real-world problems and deliver business value. My experience spans building cloud-native applications, integrating distributed systems, and contributing across software development lifecycle.",
+      part2: "Driven by curiosity and a love for discovery, I believe that life is full of possibilities both in technology and beyond. I bring a positive mindset to every challenge, constantly learning and growing along the way. Outside of work, I find inspiration in trekking and nature, which helps me stay grounded and focused."
     },
     social: {
       github: "https://github.com/vatechie",
