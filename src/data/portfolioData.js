@@ -46,12 +46,14 @@ export const personalInfo = {
   export const education = [
     {
       degree: "Master of Technology in Software Engineering",
+      link: "https://www.bits-pilani.ac.in/",
       school: "Birla Institute of Technology and Science, India",
       period: "2015 - 2019",
       description: "Specialized in Software Engineering and Computer Science with Industry knowledge and experience."
     },
     {
       degree: "Bachelor of Science in Computer Science",
+      link: "https://www.du.ac.in/",
       school: "University of Delhi, India",
       period: "2012 - 2015",
       description: "Major in Mathmatics and Computer Science with focus on algorithms, data structures, programming and software development."

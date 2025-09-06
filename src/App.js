@@ -2,16 +2,29 @@ import React, { useState, useEffect } from 'react';
 //import {  ExternalLink } from 'lucide-react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo, experience, education, skills } from './data/portfolioData';
+import profileImage from './data/profile.jpeg';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isHomeImageVisible, setIsHomeImageVisible] = useState(true);
 
-  // Handle scroll to update active section
+  // Handle scroll to update active section and home image visibility
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'experience', 'education', 'skills', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
+
+      // Check if home section image is visible
+      const homeSection = document.getElementById('home');
+      if (homeSection) {
+        const homeImage = homeSection.querySelector('#profile-image');
+        if (homeImage) {
+          const imageRect = homeImage.getBoundingClientRect();
+          // Image is visible if it's in the viewport
+          setIsHomeImageVisible(imageRect.top < window.innerHeight && imageRect.bottom > 0);
+        }
+      }
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -64,28 +77,33 @@ const Portfolio = () => {
       <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-3">
-              {/* Circular Profile Image */}
-              {/* <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold overflow-hidden">
-                {shouldShowInitials ? (
-                  profileInitials
-                ) : (
-                  <img
-                    src={require(`./data/profile.jpeg`)}
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      console.error('Navigation image failed to load:', personalInfo.img);
-                      // Fallback to initials if image fails
-                      e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = profileInitials;
-                    }}
-                  />
-                )}
-              </div> */}
-              <div className="text-2xl font-bold text-gray-900">
-                {personalInfo.name}
-              </div>
+            <div>
+              {/* Circular Profile Image - Only show when home image is not visible */}
+              {!isHomeImageVisible && (
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold overflow-hidden">
+                    {shouldShowInitials ? (
+                      profileInitials
+                    ) : (
+                      <img
+                        id="profile-image"
+                        src={profileImage}
+                        alt={personalInfo.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          console.error('Navigation image failed to load:', personalInfo.img);
+                          // Fallback to initials if image fails
+                          e.target.style.display = 'none';
+                          e.target.parentElement.innerHTML = profileInitials;
+                        }}
+                      />
+                    )}
+                  </div>
+                  <div id="profile-name" className="text-2xl font-bold text-gray-900">
+                    {personalInfo.name}
+                  </div>
+                </div>
+              )}
             </div>
             
             {/* Desktop Navigation */}
@@ -124,7 +142,7 @@ const Portfolio = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Home Section */}
       <section id="home" className="pt-16 pb-8 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center py-10">
@@ -133,7 +151,8 @@ const Portfolio = () => {
                 profileInitials
               ) : (
                 <img
-                src={require(`./data/profile.jpeg`)}
+                  src={profileImage}
+                  id="profile-image"
                   alt={profileInitials}
                   className="w-full h-full object-cover rounded-full"
                   onError={(e) => {
@@ -150,14 +169,14 @@ const Portfolio = () => {
             <p className="text-xl sm:text-2xl text-gray-600 mb-8">
               {personalInfo.title}
             </p>
-            <p className="text-lg text-gray-800 mb-12 max-w-2xxl mx-auto w-4/5">
+            <div className="text-lg text-gray-800 mb-12 max-w-2xxl mx-auto w-4/5">
               <p className="text-lg text-gray-600 mb-6">
               {personalInfo.aboutMe.part1}
               </p>
               <p className="text-lg text-gray-600 mb-6">
               {personalInfo.aboutMe.part2}
               </p>
-            </p>
+            </div>
             <div className="inline-flex space-x-4">
                 <a href={personalInfo.social.github} className="text-gray-600 hover:text-blue-600 transition-colors">
                   <Github size={24} />
@@ -211,7 +230,7 @@ const Portfolio = () => {
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900">{edu.degree}</h3>
-                    <p className="text-xl text-blue-600 font-semibold">{edu.school}</p>
+                    <a href={edu.link} target="_blank" rel="noreferrer"><p className="text-xl text-blue-600 font-semibold">{edu.school}</p></a>
                   </div>
                   <span className="text-gray-500 font-medium mt-2 md:mt-0">{edu.period}</span>
                 </div>
