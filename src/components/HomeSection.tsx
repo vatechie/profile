@@ -34,7 +34,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({ personalInfo }) => {
               />
             )}
           </div>
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl sm:text-4xl font-bold text-gray-900 mb-6">
             {personalInfo.name}
           </h1>
           <p className="text-xl sm:text-2xl text-gray-600 mb-8">
