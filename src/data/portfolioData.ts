@@ -73,33 +73,33 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Database & Tools",
-    skills: ["PostgreSQL", "MongoDB", "Redis", "Elastic", "Git", "Docker", "AWS", "Jenkins"]
+    skills: ["PostgreSQL", "Oracle DB", "MongoDB", "Redis", "Elastic", "Git", "Docker", "AWS", "Jenkins"]
   }
 ];
 
 export const projects: Project[] = [
   {
-    title: "",
-    description: "",
-    technologies: [],
-    image: "bg-gradient-to-br from-green-400 to-blue-500",
-    github: "",
-    demo: ""
-  },
-  {
-    title: "",
-    description: "",
-    technologies: [],
+    title: "Self Service Tool",
+    description: "A comprehensive analytics dashboard for monitoring system performance and business metrics. Built with real-time data streaming, interactive charts, and customizable widgets. Supports multiple data sources and provides alerts for critical thresholds.",
+    technologies: ["React", "TypeScript", "Node.js", "Kafka", "Elasticsearch", "Grafana", "InfluxDB"],
     image: "bg-gradient-to-br from-purple-400 to-pink-500",
-    github: "",
+    github: "https://github.com/vatechie",
     demo: ""
   },
   {
-    title: "",
-    description: "",
-    technologies: [],
+    title: "Account Directory Search Modernization",
+    description: "Project to replace the Perl UI with AngularJS and use Elasticsearch as an intermediate to get the data from oracle database instead of legacy approach ofcalling PL/SQL procedures.",
+    technologies: ["Java Jersey API", "Logstash", "Elasticsearch", "Shell Scripting"],
     image: "bg-gradient-to-br from-yellow-400 to-orange-500",
-    github: "",
+    github: "https://github.com/vatechie",
+    demo: ""
+  },
+  {
+    title: "Data Validation and Telemetry Framework",
+    description: "Project has been executed to have the reporting tool to validate the production data of various data sources like Oracle DB, MongoDB, Elasticsearch as part of Tech transformation of customer sales tool.",
+    technologies: ["Java", "Spring-Boot", "MongoDB", "Apache Drill", "InfuxDB", "Grafana", "Elasticsearch", "Java Mongo API", "Elasticsearch Java API"],
+    image: "bg-gradient-to-br from-indigo-400 to-purple-500",
+    github: "https://github.com/vatechie",
     demo: ""
   }
 ];
