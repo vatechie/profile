@@ -14,13 +14,13 @@ export const Footer: React.FC<FooterProps> = ({ personalInfo }) => (
           © 2024 {personalInfo.name}. All rights reserved.
         </p>
         <div className="flex justify-center space-x-6">
-          <a href={personalInfo.social.github} className="text-gray-400 hover:text-white transition-colors">
+          <a href={personalInfo.social.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
             <Github size={20} />
           </a>
-          <a href={personalInfo.social.linkedin} className="text-gray-400 hover:text-white transition-colors">
+          <a href={personalInfo.social.linkedin} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
             <Linkedin size={20} />
           </a>
-          <a href={personalInfo.social.email} className="text-gray-400 hover:text-white transition-colors">
+          <a href={personalInfo.social.email} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
             <Mail size={20} />
           </a>
         </div>

@@ -30,7 +30,10 @@ export const Navigation: React.FC<NavigationProps> = ({
     <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div>
+          <button 
+            onClick={() => scrollToSection('home')}
+            className="flex items-center"
+          >
             {!isHomeImageVisible && (
               <div className="flex items-center space-x-3">
                 <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold overflow-hidden">
@@ -56,7 +59,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                 </div>
               </div>
             )}
-          </div>
+          </button>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-1">
