@@ -16,11 +16,11 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => (
             <div className="space-y-3">
               {skillGroup.skills.map((skill, skillIndex) => (
                 <div key={skillIndex} className="flex items-center justify-between">
-                  <span className="text-gray-700">{skill}</span>
+                  <span className="text-gray-700">{skill.name}</span>
                   <div className="w-24 bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-blue-600 h-2 rounded-full" 
-                      style={{ width: `${Math.floor(Math.random() * 30) + 70}%` }}
+                    <div
+                      className="bg-blue-600 h-2 rounded-full"
+                      style={{ width: `${skill.proficiency}%` }}
                     ></div>
                   </div>
                 </div>

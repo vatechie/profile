@@ -38,9 +38,14 @@ export interface Education {
   description: string;
 }
 
+export interface Skill {
+  name: string;
+  proficiency: number;
+}
+
 export interface SkillGroup {
   category: string;
-  skills: string[];
+  skills: Skill[];
 }
 
 export interface Project {
