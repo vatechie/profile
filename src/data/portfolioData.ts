@@ -65,15 +65,40 @@ export const education: Education[] = [
 export const skills: SkillGroup[] = [
   {
     category: "Backend",
-    skills: ["Java", "Spring-Boot", "Node.js", "Python", "Express.js", "REST APIs", "Microservices"]
+    skills: [
+      { name: "Java", proficiency: 95 },
+      { name: "Spring-Boot", proficiency: 90 },
+      { name: "Node.js", proficiency: 85 },
+      { name: "Python", proficiency: 80 },
+      { name: "Express.js", proficiency: 80 },
+      { name: "REST APIs", proficiency: 92 },
+      { name: "Microservices", proficiency: 88 }
+    ]
   },
   {
     category: "Frontend",
-    skills: ["Angular", "React", "Vue.js", "JavaScript", "TypeScript", "HTML5"]
+    skills: [
+      { name: "Angular", proficiency: 85 },
+      { name: "React", proficiency: 82 },
+      { name: "Vue.js", proficiency: 72 },
+      { name: "JavaScript", proficiency: 90 },
+      { name: "TypeScript", proficiency: 85 },
+      { name: "HTML5", proficiency: 88 }
+    ]
   },
   {
     category: "Database & Tools",
-    skills: ["PostgreSQL", "Oracle DB", "MongoDB", "Redis", "Elastic", "Git", "Docker", "AWS", "Jenkins"]
+    skills: [
+      { name: "PostgreSQL", proficiency: 88 },
+      { name: "Oracle DB", proficiency: 85 },
+      { name: "MongoDB", proficiency: 82 },
+      { name: "Redis", proficiency: 75 },
+      { name: "Elastic", proficiency: 80 },
+      { name: "Git", proficiency: 92 },
+      { name: "Docker", proficiency: 85 },
+      { name: "AWS", proficiency: 82 },
+      { name: "Jenkins", proficiency: 78 }
+    ]
   }
 ];
 
